@@ -1,0 +1,22 @@
+provider:
+  name: sls-offline
+
+service: sls-offline
+
+functions:
+  try:
+    handler: Handlers/Try.handler
+    events:
+      - http:
+          path: try
+          method: get
+          cors: true
+  fib:
+    handler: Handlers/Fib.handler
+    events:
+      - http:
+          path: fib
+          method: post
+          cors: true
+plugins:
+  - serverless-offline
